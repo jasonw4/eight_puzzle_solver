@@ -1,0 +1,103 @@
+Name = Jason Wang
+Email = jasonw77@bu.edu
+
+puzzles with 5-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			10		5.8		121.2
+BFS			10		5.0		47.1
+DFS (depth limit 20)	10		16.2		19072.7
+DFS (depth limit 50)	10		48.2		49043.0
+Greedy Search (using h1) 	10		5.4		70.3
+A* (using h1)		10		5.0		6.5
+
+
+
+puzzles with 10-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			10		14.8		6165.9
+BFS			10		10.0		747.4
+DFS (depth limit 20)	10		18.8		24858.0
+DFS (depth limit 50)	10		49.2		92287.3
+Greedy Search (using h1) 	8		76.0		325.625
+A* (using h1)		10		10.0		27.3
+
+
+
+puzzles with 15-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			7		18.429		15106.571
+BFS			10		15.0		12672.0
+DFS (depth limit 20)	10		17.8		68659.0
+DFS (depth limit 50)	10		48.6		111406.0
+Greedy Search (using h1) 	6		90.3		2718.0
+A* (using h1)		10		15.0		313.8
+
+
+
+After all of these experiments, it seems that A* search is the best algorithm out of all 5 algorithms tested. A* search had a relatively fast runtime when compared to the others and had low averages, meaning it was able to find a solution without taking up too much time or space. BFS came at a close second, being able to somewhat keep up with A* search's efficiency. DFS, random, and Greedy seemed to have issues keeping up as the number of moves needed to solve the puzzle increased, becoming very inefficient, taking up too much time and sometimes not even being able to find a solution.
+
+
+heuristic h2
+------------
+This heuristic function calculates the disparity between the numbers in the state's indices and the numbers in the goal state's indices to determine the distance they have to travel in order to get to the right location.
+
+
+puzzles with 18-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	5		133.6		541.0
+Greedy (heuristic h2)	10		116.2		450.0
+
+
+A* (heuristic h1)	7		18.0		1602.0
+A* (heuristic h2)	10		18.0		359.9
+
+
+
+puzzles with 21-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	4		109.0		416.5
+Greedy (heuristic h2)	10		104.0		379.9
+
+
+A* (heuristic h1)	10		21.0		6301.7
+A* (heuristic h2)	10		21.0		906.3
+
+
+puzzles with 24-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	6		123.67		2856.17
+Greedy (heuristic h2)	10		111.0		403.8
+
+
+A* (heuristic h1)	8		24.0		25510.75
+A* (heuristic h2)	10		24.0		2493.0
+
+
+
+puzzles with 27-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	4		197.5		4285.5
+Greedy (heuristic h2)	10		115.8		418.8
+
+
+A* (heuristic h1)	0		n/a		n/a
+A* (heuristic h2)	10		27.0		12304.8
+
+
+The first heuristic function quickly becomes inefficient, unable to find the solution. This is due to the fact that it is very broad and is not specific enough, so there are many states with the same exact priority. h2 calculates every single number on the board and determines their distance from their goal spot, making the heuristic function much more specific and therefore easier for the search algorithm to determine the solution.
+
+
